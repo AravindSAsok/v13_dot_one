@@ -1,15 +1,35 @@
 # Design system
 
-## Inherited visual foundation
+## Visual direction
 
-The imported Gatsby source uses a dark visual identity, styled-components, a theme/configuration layer, Calibre and SFMono font assets, reusable layout/navigation/section components and reduced-motion hooks.
+The active home page uses a dark editorial layout with warm off-white typography, muted supporting text, fine grid lines, generous negative space, and restrained monochrome interactions. It keeps the portfolio focused on engineering work rather than decorative skill ratings or marketing metrics.
 
-The current configuration defines an accent green (`#a8ff60`) and dark navy tones (`#0a192f`, `#020c1b`). The original component system remains intact in this initial import.
+## Typography and color
 
-## v13.1 direction
+- Display: Host Grotesk with system fallbacks.
+- Body: Geist with system fallbacks.
+- Monospace labels: Geist Mono / SF Mono fallbacks.
+- Background: near-black (#0a0a0a).
+- Primary text: warm off-white (#ece8df).
+- Secondary text: muted neutral tones.
+- Accent: restrained sage green for selected architecture details.
 
-Retain a dark editorial interface with restrained accent use, readable typography, clear hierarchy, accessible focus states and responsive project presentation. Prefer reusable styled-components and existing dependencies over introducing large UI libraries.
+The active page imports web fonts from Google Fonts and includes system fallbacks. Local Calibre and SFMono font assets from the original Gatsby portfolio are preserved in the repository.
 
-## Status
+## Components and interaction
 
-This document records the inherited design foundation and target direction. A full visual redesign and viewport-by-viewport design review have not yet been completed.
+- Editorial hero and compact profile navigation.
+- Career timeline with source-backed role history.
+- Six selected project entries with functional category filters.
+- Direct source/demo links and individual case-study routes.
+- Interactive architecture explorers on case-study pages.
+- Curated project archive, historical activity snapshot, and email-based contact form.
+- Visible keyboard focus, skip link, semantic landmarks, and reduced-motion handling.
+
+## Responsive behavior
+
+The active stylesheet includes desktop, tablet, and mobile breakpoints. Project cards and archive rows adapt to narrow screens; filters wrap; the experience timeline becomes a single column. A real browser/device review is still required before release.
+
+## Performance choices
+
+The site remains a Gatsby static site. No new UI framework was added. Lenis smooth scrolling is disabled when reduced motion is requested. The site uses the existing static image assets; image optimization and payload review remain part of QA.
