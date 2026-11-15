@@ -18,7 +18,14 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: 'https://aravindsasok.github.io',
+        sitemap: 'https://aravindsasok.github.io/v13_dot_one/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
 
     {
       resolve: `gatsby-plugin-manifest`,
