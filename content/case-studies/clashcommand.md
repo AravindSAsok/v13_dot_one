@@ -16,6 +16,13 @@ stack:
 repo: https://github.com/AravindSAsok/ClashCommand
 demo: ""
 maturity: Application source with automated tests
+architecture:
+  - Authenticated browser
+  - Session and role checks
+  - Validated route handlers
+  - Drizzle data access
+  - PostgreSQL domain tables
+  - Local external-data sync
 ---
 
 ## Problem
