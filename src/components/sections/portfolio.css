@@ -1651,3 +1651,45 @@ body:has(.mni-site) #root {
     transition: none !important;
   }
 }
+
+/* Recruiter-facing project filters and direct case-study navigation */
+.mni-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  max-width: 1180px;
+  margin: 0 auto 30px;
+  padding: 0 3vw;
+}
+.mni-filter-bar button {
+  min-height: 40px;
+  padding: 8px 13px;
+  border: 1px solid var(--mni-line);
+  background: transparent;
+  color: var(--mni-muted);
+  cursor: pointer;
+  font: 11px/1.4 var(--mni-mono);
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+.mni-filter-bar button:hover,
+.mni-filter-bar button[aria-pressed="true"] {
+  border-color: rgba(236,232,223,.55);
+  color: var(--mni-text);
+  background: rgba(236,232,223,.055);
+}
+.mni-project-links li { align-items: flex-start; }
+.mni-project-links a { overflow-wrap: anywhere; }
+.mni-header-profile-link {
+  grid-column: 10 / span 2;
+  justify-self: end;
+  padding-top: 7px;
+  color: var(--mni-muted);
+  font: 12px/1.4 var(--mni-mono);
+}
+@media (max-width: 760px) {
+  .mni-filter-bar { padding: 0 20px; }
+  .mni-header-profile-link { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mni-filter-bar button { transition: none; }
+}
