@@ -331,7 +331,7 @@ const Portfolio = () => {
           </div>
         </section>
 
-        <section className="mni-projects" id="projects" aria-labelledby="projects-title">
+        <section className="mni-projects" id="projects" aria-labelledby="projects-title" style={{ "--project-count": visibleProjects.length }}>
           <h2 className="mni-visually-hidden" id="projects-title">Selected projects</h2>
           <nav className="mni-filter-bar" aria-label="Filter selected projects">
             {['All', 'AI & Agents', 'Backend Engineering', 'Full-Stack Applications', 'Research & RAG', 'Developer Tools'].map(filter => (
