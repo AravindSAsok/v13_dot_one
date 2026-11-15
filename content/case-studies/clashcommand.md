@@ -33,7 +33,7 @@ Clan, player, membership, and war information spans multiple entities and needs 
 
 Provide an authenticated operations dashboard for saved clans, player profiles, membership roles, and war history, with a controlled synchronization path to the Clash of Clans API.
 
-## Implementation
+## Solution
 
 The repository uses Next.js App Router, React, TypeScript, PostgreSQL, and Drizzle ORM. Its schema exports users, clans, players, clan memberships, CWL seasons, wars, war participants, attacks, defenses, and activity logs. NextAuth provides credential-based authentication and role-aware admin operations. Zod schemas validate clan, player, war, and attack inputs.
 
@@ -43,7 +43,7 @@ A war synchronization route checks for a signed-in user and admin role, prevents
 
 Browser → Next.js App Router → session and role checks → validated route handlers → Drizzle ORM → PostgreSQL. A local admin sync script integrates with the external game API and persists normalized war data.
 
-## Engineering decisions
+## Technology decisions
 
 - Model game operations as relational entities rather than one denormalized record.
 - Separate role checks from request validation.
@@ -54,9 +54,30 @@ Browser → Next.js App Router → session and role checks → validated route h
 
 The repository includes Vitest validation tests and a Playwright end-to-end test setup. The package scripts expose build, lint, unit-test, and end-to-end-test commands.
 
+## Data model and API design
+
+The Drizzle schema exports separate tables for users, clans, players, clan memberships, CWL seasons, wars, war participants, attacks, defenses, and activity logs. Next.js App Router handlers provide the application API boundary, while Zod schemas validate domain inputs. The local admin sync script handles external game-data synchronization.
+
+## Engineering challenges
+
+- Represent clan, player, membership, and war history as related entities.
+- Validate domain-specific values before persistence.
+- Keep synchronization to the external game API out of the public production request path.
+- Preserve a useful unit-test and end-to-end-test setup for a multi-entity application.
+
+## Security and reliability
+
+The inspected sync route checks for an authenticated user and admin role, then rejects sync execution on the deployed production site. Request validation uses Zod. NextAuth is configured for authentication; the repository's tests and route guards are evidence of implementation, not a claim of a completed penetration test.
+
 ## Limitations and trade-offs
 
 The project requires database and authentication configuration. The inspected synchronization route intentionally rejects production-triggered sync; operators must run the local admin script. No public demo URL is listed here.
+
+## Screenshots
+
+No live application screenshot was captured for this release. The interactive architecture explorer above is the code-based visual for the verified implementation flow.
+
+## Demo and source
 
 ## Why it is featured
 
