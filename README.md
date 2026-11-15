@@ -1,68 +1,87 @@
-# Aravind S Asok — Engineering Portfolio
+# Aravind S Asok — Portfolio v13.1
 
 **AI & Backend Engineer | Full-Stack Software Engineer**
 
-I build reliable backend systems, practical AI-powered applications and full-stack products.
+A recruiter-focused engineering portfolio highlighting practical backend systems, applied AI applications, and full-stack products.
 
-This repository is an independent GitHub Pages deployment of the Gatsby portfolio source. It is intentionally separate from the original `v13` repository and uses the project-site base path `/v13_dot_one/`.
+## Live site
 
-## Stack
+Expected GitHub Pages URL: https://aravindsasok.github.io/v13_dot_one/
+
+The URL is considered live only after the GitHub Actions deployment succeeds and the deployed pages are verified.
+
+## Featured work
+
+| Project | Focus | Source |
+| --- | --- | --- |
+| EvidencePilot | PDF research, hybrid retrieval, evidence review | https://github.com/AravindSAsok/EvidencePilot |
+| TrackCake | Full-stack food diary and multi-provider AI | https://github.com/AravindSAsok/tracKcake |
+| Maplewood AI Front Desk | Deterministic-first MCP agent prototype | https://github.com/AravindSAsok/maplewood-ai-front-desk |
+| Hourly | Timestamp-based time tracking and break calculations | https://github.com/AravindSAsok/hourly |
+| ClashCommand | Authenticated relational operations dashboard | https://github.com/AravindSAsok/ClashCommand |
+| ACME Salary Management | Node.js API, SQLite, search and pagination | https://github.com/AravindSAsok/acme-salary-management |
+
+Each selected project has a dedicated case study under `/case-studies/` with source links, implementation notes, limitations, and an interactive architecture explorer.
+
+## Tech stack
 
 - Gatsby 3 and React 17
-- JavaScript and styled-components
-- Markdown-driven project and experience content
-- Gatsby Image / Sharp
-- React Helmet, sitemap and robots plugins
+- styled-components
+- Markdown-driven project and case-study content
+- Gatsby sitemap and robots.txt plugins
 - GitHub Actions and GitHub Pages
 
-## Run locally
+The framework was intentionally retained from the original portfolio to avoid an unnecessary migration.
 
-The project targets Node.js 16.20.2 (see `.nvmrc`) and Yarn Classic.
+## Local development
+
+Requirements: Node.js 16.20.2 and Yarn Classic 1.22.x.
 
 ```bash
-nvm install 16.20.2
-nvm use 16.20.2
+nvm use
 yarn install --frozen-lockfile
 yarn develop
 ```
 
-Open the local URL printed by Gatsby, normally http://localhost:8000.
+Open http://localhost:8000.
 
 ## Production build
 
 ```bash
+yarn install --frozen-lockfile
 yarn build --prefix-paths
-yarn serve
 ```
 
-## Content structure
-
-- `content/featured/` — featured project entries
-- `content/jobs/` — professional experience entries
-- `content/projects/` — supporting project archive
-- `src/config.js` — navigation, social links and theme configuration
-- `static/projects/` — project preview images
-- `src/images/` — site assets
-- `docs/` — audit, design, architecture, SEO, QA and release notes
-
-Project descriptions are based on the content currently committed to this portfolio. A featured entry is not a substitute for a source-code audit of the corresponding application. Do not infer unimplemented functionality from marketing copy.
+The project site uses Gatsby's `/v13_dot_one` path prefix. Use the prefix-aware build for deployment verification.
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the Gatsby site and deploys the generated `public/` directory to GitHub Pages. The configured project URL is:
+The `.github/workflows/deploy.yml` workflow builds the site, uploads the Gatsby `public/` directory as a Pages artifact, and deploys it to GitHub Pages.
 
-https://aravindsasok.github.io/v13_dot_one/
+Repository settings: **Settings → Pages → Build and deployment → GitHub Actions**.
 
-The repository's Pages settings must permit GitHub Actions deployment.
+## Repository structure
 
-## Quality checks
+- `content/featured/` — original Markdown project content retained from the source portfolio
+- `content/case-studies/` — six source-audited engineering case studies
+- `content/jobs/` — experience history
+- `src/components/sections/portfolio.js` — active home page
+- `src/templates/case-study.js` — reusable case-study page and architecture explorer
+- `static/projects/` — portfolio project and activity images
+- `docs/` — project audit, selection, design, architecture, SEO, QA, deployment, and release notes
 
-```bash
-yarn build --prefix-paths
-```
+## Verification status
 
-The GitHub Actions workflow runs the production build before publishing. Additional browser, accessibility and live-site checks should be recorded in `docs/QA_REPORT.md` only after they have actually been run.
+The previous workflow revision successfully completed dependency installation and the Gatsby production build. Pages configuration initially failed because the Pages site had not yet been enabled. The repository owner has since enabled Pages; the latest implementation workflow and live deployment must still be verified before this release is promoted.
+
+See [QA_REPORT.md](docs/QA_REPORT.md) and [DEPLOYMENT.md](docs/DEPLOYMENT.md) for the current release status.
+
+## Professional links
+
+- GitHub: https://github.com/AravindSAsok
+- LinkedIn: https://www.linkedin.com/in/aravind-asok/
+- Email: aravindsasok@outlook.com
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. The original license and upstream notices are preserved.
