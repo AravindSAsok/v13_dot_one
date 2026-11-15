@@ -1,14 +1,18 @@
 # Release notes
 
-## v13.1 repository bootstrap
+## v13.1 implementation milestones
 
-- Created an independent working tree in `AravindSAsok/v13_dot_one`.
-- Imported the 137-file Gatsby portfolio source from `AravindSAsok/v13`.
-- Preserved the original MIT license and source assets.
-- Configured Gatsby for the `/v13_dot_one` GitHub Pages project path.
-- Rewrote the repository README with setup and deployment instructions.
-- Added audit, selection, design, architecture, SEO, QA and deployment documentation.
+- Created independent repository `AravindSAsok/v13_dot_one` on `main`, preserving the original `v13` repository.
+- Imported the original Gatsby source, static assets, fonts, lockfile, and MIT license.
+- Configured the `/v13_dot_one` GitHub Pages path prefix and canonical URL handling.
+- Replaced the featured-project list with six source-audited projects: EvidencePilot, TrackCake, Maplewood AI Front Desk, Hourly, ClashCommand, and ACME Salary Management.
+- Moved overlapping document-QA prototypes and smaller utilities into the curated archive.
+- Added individual Markdown case studies and Gatsby routes for all six selected projects.
+- Added interactive architecture explorers to the case-study template.
+- Added working project category filters and a career timeline using the existing portfolio experience entries.
+- Corrected the activity snapshot asset path to respect Gatsby's project prefix.
+- Updated audit, selection, architecture, design, SEO, QA, deployment, and release documentation.
 
 ## Release status
 
-Repository bootstrap is pushed. The full redesign, six-project source audit, individual case studies, interactive architecture explorers, production build, browser QA and live deployment verification are not yet complete.
+Implementation is pushed to `main`. The current-commit production build, GitHub Pages deployment, generated metadata, live URL, link health, accessibility, and desktop/mobile browser review still require verification. Do not promote the new site to the primary portfolio URL until the release QA is complete.
