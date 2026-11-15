@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import { Head } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
@@ -48,6 +48,7 @@ const ResumePage = () => (
       <Resume>
         <div className="actions">
           <Link to="/">← Back to portfolio</Link>
+          <a href={withPrefix('/resume.pdf')} download>Download PDF ↗</a>
           <button type="button" onClick={() => window.print()}>Print / Save as PDF ↗</button>
         </div>
         <div className="sheet">
