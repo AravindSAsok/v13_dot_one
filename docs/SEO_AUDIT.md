@@ -1,18 +1,22 @@
 # SEO audit
 
-## Implemented baseline
+## Implemented
 
-The inherited Gatsby configuration includes site metadata, React Helmet, sitemap generation, robots.txt generation and Open Graph image metadata. The v13.1 Gatsby configuration has been updated to use:
+- Gatsby site metadata identifies Aravind S Asok and the independent GitHub Pages origin.
+- Gatsby project path prefix is `/v13_dot_one`.
+- React Helmet emits page title, description, Open Graph, and Twitter metadata.
+- Canonical URL output is included in the shared Head component and accounts for the `/v13_dot_one` project path.
+- Gatsby sitemap and robots.txt plugins remain configured.
+- Individual case-study pages receive project-specific title and description metadata.
 
-- Canonical site origin: `https://aravindsasok.github.io/v13_dot_one`
-- Gatsby project path prefix: `/v13_dot_one`
+## Verify after deployment
 
-## Pending verification
+- Inspect generated canonical tags and ensure the base path is not duplicated.
+- Confirm sitemap and robots.txt use the new repository URL.
+- Confirm static image paths resolve beneath `/v13_dot_one/`.
+- Check unique page titles/descriptions and social preview image loading.
+- Run a crawler and inspect the live pages after the first successful deploy.
 
-- Inspect generated HTML, sitemap and robots.txt after a successful production build.
-- Verify canonical URLs and asset paths in the built output.
-- Review title and description uniqueness for all routes.
-- Validate Open Graph previews and structured data.
-- Run an SEO crawler against the deployed site.
+## Limitations
 
-Search indexing and ranking changes cannot be guaranteed and require time after deployment.
+No paid SEO services were enabled. Search engine indexing and rankings are outside the deployment process and cannot be promised; indexing changes require time.
