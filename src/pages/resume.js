@@ -44,7 +44,7 @@ const ResumePage = () => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
-      <Head title="Resume — Aravind S Asok" description="Backend / AI Engineer with 5+ years of experience in Node.js, NestJS, Python, applied AI, and backend systems." />
+      <Head title="Résumé" description="Backend / AI Engineer with 5+ years of experience in Node.js, NestJS, Python, applied AI, and backend systems." />
       <Resume>
         <div className="actions">
           <Link to="/">← Back to portfolio</Link>
