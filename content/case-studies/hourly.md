@@ -11,7 +11,6 @@ stack:
   - PostgreSQL
   - Node.js test runner
 repo: https://github.com/AravindSAsok/hourly
-demo: https://hourly-psi.vercel.app/dashboard
 maturity: Deployed application
 architecture:
   - Authenticated workspace
@@ -76,7 +75,7 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
-[Source repository](https://github.com/AravindSAsok/hourly) · [Live application](https://hourly-psi.vercel.app/dashboard)
+[Source repository](https://github.com/AravindSAsok/hourly). A public demo URL is not listed in the repository README.
 
 ## Why it is featured
 
