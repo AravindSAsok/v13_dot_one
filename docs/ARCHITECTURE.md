@@ -2,7 +2,7 @@
 
 ## Portfolio application
 
-The site remains on Gatsby 3 and React 17 with styled-components. It uses Gatsby filesystem and Markdown transformers to ingest career, project, and case-study content. The active portfolio home is a focused editorial React page with a data-driven six-project list, category filter state, archive, activity snapshot, and mailto contact flow.
+The site remains on Gatsby 3 and React 17 with styled-components. It uses Gatsby filesystem and Markdown transformers to ingest career, project, and case-study content. The active portfolio home is a focused editorial React page with a data-driven six-project list, category filter state, archive, activity snapshot, printable résumé, and mailto contact flow.
 
 ## Case-study routing
 
@@ -29,6 +29,6 @@ The project path is `/v13_dot_one`; Gatsby's `pathPrefix` and site metadata use 
 - **Maplewood:** synthetic inbox → deterministic policy checks → identity/schedule tools → MCP boundary → guarded action → structured audit result.
 - **Hourly:** authenticated workspace → timestamp records → PostgreSQL → shared time calculations → dashboard/history/reports/export.
 - **ClashCommand:** authenticated browser → session/role checks → validated route handlers → Drizzle → PostgreSQL; external sync is an operator-run workflow.
-- **ACME Salary Management:** React dashboard → Express API → employee/salary query functions → SQLite.
+- **Openfolio:** React/Vite dashboard → GitHub OAuth → Cloudflare Worker API → public repository import → D1 portfolio storage → server-rendered public profile; optional R2 image storage.
 
 These flows summarize inspected repository structures and code paths. They are not runtime traces or performance measurements.
