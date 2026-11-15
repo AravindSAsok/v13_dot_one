@@ -1285,7 +1285,7 @@ body:has(.mni-site) #root {
   }
 
   .mni-hero-scroll {
-    top: calc(100svh - 228px);
+    top: calc(100svh - 112px);
     left: 22px;
     font-size: 10px;
   }
@@ -1295,7 +1295,7 @@ body:has(.mni-site) #root {
   }
 
   .mni-hero-statement {
-    top: calc(66vh - 116px);
+    top: calc(100svh - 220px);
     left: 22px;
     width: calc(100% - 132px);
     max-width: 360px;
@@ -1304,7 +1304,7 @@ body:has(.mni-site) #root {
   }
 
   .mni-profile-figure {
-    top: calc(64vh - 116px);
+    top: calc(100svh - 290px);
     right: 22px;
     width: 68px;
     font-size: 10px;
@@ -1744,6 +1744,7 @@ body:has(.mni-site) #root {
 }
 
 /* Hero role and primary recruiter actions */
+.mni-projects { height: calc(var(--project-count, 6) * 1000px + 80px); }
 .mni-hero-role {
   position: absolute;
   top: calc(37.8vh + clamp(74px, 11.65vw, 172px) + 12px);
@@ -1838,15 +1839,15 @@ body:has(.mni-site) #root {
 }
 @media (max-width: 767px) {
   .mni-hero-role {
-    top: calc(35vh + clamp(40px, 10.6vw, 64px) + 20px);
+    top: calc(35vh + clamp(40px, 10.6vw, 64px) + 8px);
     left: 22px;
     right: 22px;
     font-size: 10px;
   }
   .mni-hero-actions {
-    top: calc(35vh + clamp(40px, 10.6vw, 64px) + 58px);
+    top: calc(35vh + clamp(40px, 10.6vw, 64px) + 34px);
     left: 22px;
-    right: 22px;
+    right: 132px;
     max-width: none;
     gap: 5px 13px;
   }
