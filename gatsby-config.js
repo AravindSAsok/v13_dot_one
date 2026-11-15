@@ -4,9 +4,9 @@ module.exports = {
   pathPrefix: '/v13_dot_one',
 
   siteMetadata: {
-    title: 'Aravind S Asok',
+    title: 'Aravind S Asok — AI & Backend Engineer',
     description:
-      'Aravind S Asok is a Software Engineer focused on building scalable backend systems, reliable APIs, and AI-powered applications.',
+      'AI & Backend Engineer with 5+ years building Node.js, NestJS, Python, reliable APIs, and applied AI applications. Explore case studies in RAG, MCP, PostgreSQL, and full-stack systems.',
     siteUrl: 'https://aravindsasok.github.io/v13_dot_one',
     image: '/og.png',
   },
