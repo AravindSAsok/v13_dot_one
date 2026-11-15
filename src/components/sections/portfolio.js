@@ -64,15 +64,15 @@ const featuredProjects = [
     caseStudy: '/case-studies/clashcommand/',
   },
   {
-    title: 'ACME Salary Management',
-    category: 'Full-Stack Applications',
-    maturity: 'Full-stack application',
-    lead: 'An HR dashboard for searching employee records and managing salary information.',
-    summary: 'Pairs a React interface with an Express API and SQLite persistence, including pagination, employee search, salary updates, and summary endpoints. The test suite exercises a seeded 10,000-record dataset.',
-    stack: ['React', 'Node.js', 'Express 5', 'SQLite', 'better-sqlite3'],
-    repoName: 'AravindSAsok/acme-salary-management',
-    repo: 'https://github.com/AravindSAsok/acme-salary-management',
-    caseStudy: '/case-studies/acme-salary-management/',
+    title: 'Openfolio',
+    category: 'Developer Tools',
+    maturity: 'Early MVP; hosted OAuth needs operator setup',
+    lead: 'A self-hostable developer portfolio platform powered by public GitHub work.',
+    summary: 'Combines GitHub OAuth, curated portfolio content, Cloudflare D1 persistence, optional R2 image storage, and server-rendered public profile pages.',
+    stack: ['React 19', 'Vite', 'TypeScript', 'Cloudflare Workers', 'D1', 'R2', 'Drizzle'],
+    repoName: 'AravindSAsok/openfolio',
+    repo: 'https://github.com/AravindSAsok/openfolio',
+    caseStudy: '/case-studies/openfolio/',
   },
 ];
 
@@ -85,11 +85,11 @@ const archiveProjects = [
     repo: 'https://github.com/AravindSAsok/ProfBot',
   },
   {
-    title: 'Openfolio',
-    language: 'TypeScript',
+    title: 'ACME Salary Management',
+    language: 'JavaScript',
     year: '2026',
-    description: 'An early MVP for self-hostable developer portfolios using public GitHub data, Cloudflare Workers, D1, and R2.',
-    repo: 'https://github.com/AravindSAsok/openfolio',
+    description: 'A React and Express HR dashboard with SQLite-backed employee search, pagination, salary updates, and summary endpoints.',
+    repo: 'https://github.com/AravindSAsok/acme-salary-management',
   },
   {
     title: 'LineSplit',
@@ -219,6 +219,7 @@ const Portfolio = () => {
           <div className="mni-hero-grid" aria-hidden="true" />
 
           <h1 id="hero-title">Aravind S Asok</h1>
+          <p className="mni-hero-role">AI &amp; Backend Engineer <span>·</span> Full-Stack Software Engineer</p>
 
           <p className="mni-hero-scroll">
             <span aria-hidden="true" />
@@ -226,8 +227,15 @@ const Portfolio = () => {
           </p>
 
           <p className="mni-hero-statement">
-            I build reliable backend systems, practical AI applications, and full-stack products.
+            I build reliable backend systems, practical AI-powered applications and full-stack products.
           </p>
+          <nav className="mni-hero-actions" aria-label="Primary actions">
+            <a className="mni-action-primary" href="#projects">View selected work <span aria-hidden="true">↘</span></a>
+            <a href={withPrefix('/resume.pdf')} download>Download résumé <span aria-hidden="true">↓</span></a>
+            <a href="https://github.com/AravindSAsok" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/aravind-asok/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="#contact">Contact ↘</a>
+          </nav>
 
           <figure className="mni-profile-figure">
             <img
@@ -266,7 +274,8 @@ const Portfolio = () => {
           {indexOpen && (
             <nav className="mni-index-panel" id="mni-index-panel" aria-label="Page index">
               <a href="#experience" onClick={() => setIndexOpen(false)}><span>01</span> Experience</a>
-              <a href="#projects" onClick={() => setIndexOpen(false)}><span>02</span> Selected work</a>
+              <a href="#capabilities" onClick={() => setIndexOpen(false)}><span>02</span> Capabilities</a>
+              <a href="#projects" onClick={() => setIndexOpen(false)}><span>03</span> Selected work</a>
               {featuredProjects.map((project, index) => (
                 <a
                   key={project.title}
@@ -275,9 +284,9 @@ const Portfolio = () => {
                   <span>{projectNumber(index)}</span>{project.title}
                 </a>
               ))}
-              <a href="#archive" onClick={() => setIndexOpen(false)}><span>03</span> More projects</a>
-              <a href="#activity" onClick={() => setIndexOpen(false)}><span>04</span> Activity</a>
-              <a href="#contact" onClick={() => setIndexOpen(false)}><span>05</span> Contact</a>
+              <a href="#archive" onClick={() => setIndexOpen(false)}><span>04</span> More projects</a>
+              <a href="#activity" onClick={() => setIndexOpen(false)}><span>05</span> Activity</a>
+              <a href="#contact" onClick={() => setIndexOpen(false)}><span>06</span> Contact</a>
             </nav>
           )}
         </section>
@@ -308,10 +317,21 @@ const Portfolio = () => {
           </ol>
         </section>
 
+        <section className="mni-section mni-capabilities" id="capabilities" aria-labelledby="capabilities-title">
+          <div className="mni-section-kicker"><span>(01)</span><span>Engineering capabilities</span></div>
+          <h2 id="capabilities-title">What I work with.</h2>
+          <div className="mni-capability-grid">
+            <article><span>01 / Backend</span><h3>Systems & APIs</h3><p>Node.js, NestJS, Express, REST APIs, PostgreSQL, MySQL, MongoDB, data modelling, authentication and authorization.</p></article>
+            <article><span>02 / Applied AI</span><h3>LLMs & retrieval</h3><p>LLM integrations, RAG, hybrid retrieval, citation validation, document processing, MCP and agent workflows.</p></article>
+            <article><span>03 / Full-stack</span><h3>Product engineering</h3><p>JavaScript, TypeScript, React, Next.js, Astro, API integration and responsive application interfaces.</p></article>
+            <article><span>04 / Delivery</span><h3>Quality & operations</h3><p>Automated testing, input validation, security boundaries, Docker, CI/CD, AWS, GCP and debugging.</p></article>
+          </div>
+        </section>
+
         <section className="mni-projects" id="projects" aria-labelledby="projects-title">
           <h2 className="mni-visually-hidden" id="projects-title">Selected projects</h2>
           <nav className="mni-filter-bar" aria-label="Filter selected projects">
-            {['All', 'AI & Agents', 'Backend Engineering', 'Full-Stack Applications', 'Research & RAG'].map(filter => (
+            {['All', 'AI & Agents', 'Backend Engineering', 'Full-Stack Applications', 'Research & RAG', 'Developer Tools'].map(filter => (
               <button key={filter} type="button" aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>
                 {filter}
               </button>
@@ -331,7 +351,7 @@ const Portfolio = () => {
                   style={{ zIndex: projectIndex + 1 }}
                   aria-labelledby={'project-title-' + (projectIndex + 1)}>
                   <div className="mni-project-meta">
-                    <span>(01) <strong>Selected work</strong></span>
+                    <span>(02) <strong>Selected work</strong></span>
                     <span>{number} / 06</span>
                     <span>{project.category}</span>
                   </div>
@@ -389,7 +409,7 @@ const Portfolio = () => {
 
         <section className="mni-section mni-archive" id="archive" aria-labelledby="archive-title">
           <div className="mni-section-kicker">
-            <span>(02)</span>
+            <span>(03)</span>
             <span>Archive, {archiveProjects.length}</span>
           </div>
           <h2 id="archive-title">More projects</h2>
@@ -422,7 +442,7 @@ const Portfolio = () => {
 
         <section className="mni-section mni-activity" id="activity" aria-labelledby="activity-title">
           <div className="mni-section-kicker">
-            <span>(03)</span>
+            <span>(04)</span>
             <span>Activity · Nov 2025 to Nov 2026</span>
           </div>
           <h2 className="mni-visually-hidden" id="activity-title">GitHub activity</h2>
@@ -473,12 +493,12 @@ const Portfolio = () => {
         </section>
 
         <section className="mni-section mni-contact" id="contact" aria-labelledby="contact-title">
-          <div className="mni-section-kicker"><span>(04)</span></div>
+          <div className="mni-section-kicker"><span>(05)</span></div>
           <h2 id="contact-title">Contact</h2>
 
           <div className="mni-contact-grid">
             <div className="mni-contact-social">
-              <p>Write to Aravind directly, or find them here</p>
+              <p>Write to me directly, or find me here</p>
               <a href="https://github.com/AravindSAsok" target="_blank" rel="noopener noreferrer">
                 <strong>GitHub</strong>
                 <span>github.com/aravindsasok</span>
