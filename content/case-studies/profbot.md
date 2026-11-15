@@ -14,6 +14,13 @@ stack:
 repo: https://github.com/AravindSAsok/ProfBot
 demo: ""
 maturity: Interview-ready application demo
+architecture:
+  - CLI or Streamlit UI
+  - Document loader
+  - Source-aware chunker
+  - BM25-style retriever
+  - Gemini answer service
+  - Citation and usage validation
 ---
 
 ## Problem
