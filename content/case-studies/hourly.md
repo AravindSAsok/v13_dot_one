@@ -30,7 +30,7 @@ Time tracking becomes unreliable when totals are treated as mutable counters ins
 
 Store source timestamps and calculate working time consistently across the live dashboard, history, reports, and CSV exports.
 
-## Implementation
+## Solution
 
 Hourly uses Next.js App Router, TypeScript, Supabase Auth, and PostgreSQL. Its shared time module models work sessions and break records, parses timestamps into epoch values, merges overlapping intervals, and calculates gross time, observed break time, deducted break time, and net work time.
 
@@ -40,7 +40,7 @@ Its break policy is explicit: a completed break shorter than 15 minutes remains 
 
 Next.js workspace → authenticated server actions → PostgreSQL timestamp records → shared time calculation module → dashboard, history, reports, and CSV export.
 
-## Engineering decisions
+## Technology decisions
 
 - Treat timestamps as the source of truth and derive totals from them.
 - Keep schedule capacity separate from net-work calculations.
@@ -51,9 +51,30 @@ Next.js workspace → authenticated server actions → PostgreSQL timestamp reco
 
 The repository includes Node test-runner suites for time calculations, break deduction, active-break editing, completed-break editing, punch-out editing, and schedule-break capacity.
 
+## Data model and API design
+
+The Supabase migration defines `profiles`, `work_sessions`, `breaks`, and `break_edits`. Work sessions store clock-in and clock-out timestamps; breaks store their actual start and end timestamps; edits preserve the previous and corrected values. Shared server/database functions perform state transitions, while the TypeScript calculation module derives net time from records.
+
+## Engineering challenges
+
+- Apply the 15-minute break threshold consistently at 14:59, 15:00, and 15:01.
+- Treat an open break as provisional until it reaches the threshold.
+- Merge overlapping intervals and split working time across local day and week boundaries.
+- Preserve correct totals around midnight and daylight-saving transitions.
+
+## Security and reliability
+
+RLS is enabled on user data and read policies use `auth.uid()`. Direct table writes are revoked from application roles; state changes run through narrowly scoped database functions with database timestamps and row locking. Partial unique indexes prevent multiple open sessions or breaks. These controls are source-inspected, not a third-party security certification.
+
 ## Limitations and trade-offs
 
 The app requires a configured Supabase project for authentication and persistence. Time calculations depend on valid timestamp inputs and the application's documented break policy; this is a work tracker, not a payroll compliance system.
+
+## Screenshots
+
+No live application screenshot was captured for this release. The interactive architecture explorer above is the code-based visual for the verified implementation flow.
+
+## Demo and source
 
 ## Why it is featured
 
