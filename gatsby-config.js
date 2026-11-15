@@ -19,13 +19,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,
-      options: { output: `/sitemap.xml` },
+      options: { output: `/` },
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: 'https://aravindsasok.github.io',
-        sitemap: 'https://aravindsasok.github.io/v13_dot_one/sitemap.xml',
+        sitemap: 'https://aravindsasok.github.io/v13_dot_one/sitemap-index.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
