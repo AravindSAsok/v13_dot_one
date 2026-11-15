@@ -265,7 +265,8 @@ const Portfolio = () => {
 
           {indexOpen && (
             <nav className="mni-index-panel" id="mni-index-panel" aria-label="Page index">
-              <a href="#projects" onClick={() => setIndexOpen(false)}><span>01</span> Projects</a>
+              <a href="#experience" onClick={() => setIndexOpen(false)}><span>01</span> Experience</a>
+              <a href="#projects" onClick={() => setIndexOpen(false)}><span>02</span> Selected work</a>
               {featuredProjects.map((project, index) => (
                 <a
                   key={project.title}
@@ -274,11 +275,35 @@ const Portfolio = () => {
                   <span>{projectNumber(index)}</span>{project.title}
                 </a>
               ))}
-              <a href="#archive" onClick={() => setIndexOpen(false)}><span>02</span> More projects</a>
-              <a href="#activity" onClick={() => setIndexOpen(false)}><span>03</span> Activity</a>
-              <a href="#contact" onClick={() => setIndexOpen(false)}><span>04</span> Contact</a>
+              <a href="#archive" onClick={() => setIndexOpen(false)}><span>03</span> More projects</a>
+              <a href="#activity" onClick={() => setIndexOpen(false)}><span>04</span> Activity</a>
+              <a href="#contact" onClick={() => setIndexOpen(false)}><span>05</span> Contact</a>
             </nav>
           )}
+        </section>
+
+                <section className="mni-section mni-experience" id="experience" aria-labelledby="experience-title">
+          <div className="mni-section-kicker">
+            <span>(00)</span>
+            <span>Profile & experience</span>
+          </div>
+          <div className="mni-experience-intro">
+            <div>
+              <h2 id="experience-title">Engineering with context.</h2>
+              <p>I'm Aravind S Asok, a software engineer with 5+ years of experience building backend services, APIs, and full-stack products. My recent work combines Node.js and TypeScript systems with practical AI applications, retrieval workflows, and agent integrations.</p>
+            </div>
+            <div className="mni-experience-links">
+              <a href="https://github.com/AravindSAsok" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/aravind-asok/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a href={'mailto:' + email}>Email ↗</a>
+            </div>
+          </div>
+          <ol className="mni-experience-list">
+            <li><span>2026 — Present</span><div><strong>Software Engineer</strong><small>AINEX Software Solutions</small><p>Backend services and REST APIs, relational data, access control, integrations, and AI-enabled workflows.</p></div></li>
+            <li><span>2025 — 2026</span><div><strong>Backend Developer</strong><small>Independent / Freelance</small><p>Backend systems for finance, healthcare, and research workflows, including APIs, data models, and AI integrations.</p></div></li>
+            <li><span>2021 — 2025</span><div><strong>Software Engineer</strong><small>Revyrie Global · Technopark</small><p>Node.js and Python services, SQL data models, external integrations, authentication, and delivery workflows.</p></div></li>
+            <li><span>2020 — 2021</span><div><strong>Jr. Software Engineer</strong><small>GDS Technologies Limited</small><p>Backend services, REST APIs, relational data operations, debugging, and application testing.</p></div></li>
+          </ol>
         </section>
 
         <section className="mni-projects" id="projects" aria-labelledby="projects-title">
@@ -292,23 +317,24 @@ const Portfolio = () => {
           </nav>
           <ol className="mni-project-list">
             {visibleProjects.map((project, index) => {
-              const number = projectNumber(index);
+              const projectIndex = featuredProjects.findIndex(item => item.title === project.title);
+              const number = projectNumber(projectIndex);
               const openUrl = project.live || project.repo;
 
               return (
                 <li
                   className="mni-project-card"
-                  id={'project-' + (index + 1)}
+                  id={'project-' + (projectIndex + 1)}
                   key={project.title}
-                  style={{ zIndex: index + 1 }}
-                  aria-labelledby={'project-title-' + (index + 1)}>
+                  style={{ zIndex: projectIndex + 1 }}
+                  aria-labelledby={'project-title-' + (projectIndex + 1)}>
                   <div className="mni-project-meta">
                     <span>(01) <strong>Selected work</strong></span>
                     <span>{number} / 06</span>
                     <span>{project.category}</span>
                   </div>
 
-                  <h3 className="mni-project-title" id={'project-title-' + (index + 1)}>
+                  <h3 className="mni-project-title" id={'project-title-' + (projectIndex + 1)}>
                     <a href={openUrl} target="_blank" rel="noopener noreferrer">
                       {project.title}<span aria-hidden="true"> ↗</span>
                       <span className="mni-visually-hidden"> — open project</span>
