@@ -17,7 +17,10 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: { output: `/sitemap.xml` },
+    },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
