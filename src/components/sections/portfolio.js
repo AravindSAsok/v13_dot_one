@@ -296,6 +296,7 @@ const Portfolio = () => {
               <a href="https://github.com/AravindSAsok" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
               <a href="https://www.linkedin.com/in/aravind-asok/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
               <a href={'mailto:' + email}>Email ↗</a>
+              <a href={withPrefix('/resume/')}>View / print résumé ↗</a>
             </div>
           </div>
           <ol className="mni-experience-list">
