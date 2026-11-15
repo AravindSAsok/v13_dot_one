@@ -40,12 +40,25 @@ const CaseStudyTemplate = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark;
   const [activeStep, setActiveStep] = useState(0);
   const architecture = frontmatter.architecture || [];
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: frontmatter.title,
+    description: frontmatter.summary,
+    applicationCategory: 'DeveloperApplication',
+    programmingLanguage: frontmatter.stack,
+    codeRepository: frontmatter.repo,
+    author: { '@type': 'Person', name: 'Aravind S Asok', url: 'https://aravindsasok.github.io/v13_dot_one/' },
+  };
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
         <Head title={frontmatter.title} description={frontmatter.summary} />
-        <Helmet><meta property="og:type" content="article" /></Helmet>
+        <Helmet>
+          <meta property="og:type" content="article" />
+          <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
+        </Helmet>
         <Page>
           <Link className="back" to="/">← Back to portfolio</Link>
           <p className="eyebrow">{frontmatter.category} / Case study</p>
