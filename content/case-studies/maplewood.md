@@ -12,6 +12,13 @@ stack:
 repo: https://github.com/AravindSAsok/maplewood-ai-front-desk
 demo: ""
 maturity: Prototype using synthetic data
+architecture:
+  - Synthetic inbox message
+  - Deterministic policy checks
+  - Identity and schedule tools
+  - MCP tool boundary
+  - Guarded workflow action
+  - Structured result and audit
 ---
 
 ## Problem
