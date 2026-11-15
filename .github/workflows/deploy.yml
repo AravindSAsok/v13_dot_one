@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -30,13 +30,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Build Gatsby site
+        run: yarn build --prefix-paths
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-
-      - name: Build Gatsby site
-        run: yarn build --prefix-paths
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
