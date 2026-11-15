@@ -1735,7 +1735,7 @@ body:has(.mni-site) #root {
 .mni-experience-list strong { display: block; color: var(--mni-text); font-size: 19px; font-weight: 500; }
 .mni-experience-list small { display: block; margin-top: 4px; color: var(--mni-muted); font: 12px/1.5 var(--mni-mono); }
 .mni-experience-list p { max-width: 680px; margin: 12px 0 0; color: var(--mni-muted); font: 14px/1.7 var(--mni-body); }
-.mni-header-profile { grid-column: 7 / span 2; }
+@media (min-width: 761px) { .mni-header-profile { grid-column: 7 / span 2; } }
 @media (max-width: 760px) {
   .mni-experience { padding-top: 86px; padding-bottom: 76px; }
   .mni-experience-intro { grid-template-columns: 1fr; gap: 24px; margin: 30px 0 38px; }
