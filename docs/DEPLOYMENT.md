@@ -4,16 +4,16 @@
 
 - Repository: https://github.com/AravindSAsok/v13_dot_one
 - Branch: `main`
-- GitHub Pages URL: https://aravindsasok.github.io/v13_dot_one/
+- Expected GitHub Pages URL: https://aravindsasok.github.io/v13_dot_one/
 
 ## Workflow
 
-The `.github/workflows/deploy.yml` workflow builds the Gatsby site with `yarn build --prefix-paths`, uploads `public/` as a Pages artifact and deploys it with the GitHub Pages deployment action.
+The `.github/workflows/deploy.yml` workflow installs dependencies with Yarn Classic, runs `yarn build --prefix-paths`, configures Pages, uploads the `public/` directory, and deploys the Pages artifact.
 
 ## Repository settings
 
-In GitHub, open **Settings → Pages** and ensure the build and deployment source is **GitHub Actions**. The workflow requires the Pages and ID-token permissions declared in the YAML.
+The repository owner has enabled GitHub Pages and selected GitHub Actions as the deployment source. The workflow declares `pages: write` and `id-token: write` permissions.
 
-## Verification
+## Status
 
-A successful Git push is not equivalent to a successful deployment. Confirm the workflow's build and deploy jobs, then open the live URL and verify navigation and static assets. Record actual results in `QA_REPORT.md`.
+The previous workflow build passed, but its Pages configuration step failed before the site was enabled. A retry was started after Pages was enabled. The current implementation's latest workflow must complete both build and deploy jobs, and the live URL must be opened and checked, before deployment is marked successful.
