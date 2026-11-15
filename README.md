@@ -1,63 +1,127 @@
-# Aravind S Asok — Portfolio v13.1
+# Aravind S Asok — Developer Portfolio
 
-Engineering-first portfolio for **AI & Backend Engineer | Full-Stack Software Engineer**.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/src/images/logo.png" width="88" alt="Aravind S Asok portfolio mark" />
+</p>
 
-**Target site:** https://aravindsasok.github.io/v13_dot_one/
+<p align="center"><strong>Backend engineering, full-stack products, and practical AI applications.</strong></p>
 
-This repository is an independent v13.1 portfolio implementation. The original [v13 repository](https://github.com/AravindSAsok/v13) and its production site are separate and must remain untouched.
+<p align="center">
+  <img alt="Gatsby" src="https://img.shields.io/badge/Gatsby-3.4.1-663399?logo=gatsby&logoColor=white" />
+  <img alt="React" src="https://img.shields.io/badge/React-17-149ECA?logo=react&logoColor=white" />
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black" />
+  <img alt="Styled Components" src="https://img.shields.io/badge/Styled--Components-5.3-DB7093?logo=styledcomponents&logoColor=white" />
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-green" />
+</p>
 
-## What is here
+This repository contains the source for Aravind S Asok's personal developer portfolio. It is a content-driven Gatsby site that presents professional experience, selected projects, technical skills, and contact links through a responsive React interface.
 
-- Responsive dark editorial portfolio with accessible mobile navigation.
-- Six featured projects with working category filters.
-- Six technical case studies with architecture flows, engineering decisions and explicit limitations.
-- Engineering capabilities, professional background, supporting project archive and contact links.
-- Static SEO metadata, canonical URLs, Person structured data, Open Graph artwork, robots.txt and sitemap.xml.
-- GitHub Actions deployment to GitHub Pages. No server, database, paid service or build-time dependency is required.
+> This is the Gatsby portfolio implementation in this repository. The technology badges describe this codebase, not any newer portfolio rebuild hosted elsewhere.
 
-## Featured projects
+## Portfolio sections
 
-| Project | Focus | Current maturity |
-| --- | --- | --- |
-| [EvidencePilot](https://github.com/AravindSAsok/EvidencePilot) | Evidence-grounded research, retrieval and claim audits | Hosted demo |
-| [TrackCake](https://github.com/AravindSAsok/tracKcake) | Food diary, multi-provider AI and optional Supabase persistence | Live product |
-| [Hourly](https://github.com/AravindSAsok/hourly) | Timestamp-first time tracking and break accounting | Product MVP |
-| [Maplewood AI Front Desk](https://github.com/AravindSAsok/maplewood-ai-front-desk) | Safety-first MCP agent prototype | Prototype |
-| [ClashCommand](https://github.com/AravindSAsok/ClashCommand) | Clan/player/war operations dashboard | Application |
-| [ProfBot](https://github.com/AravindSAsok/ProfBot) | Private document Q&A with BM25-style retrieval | Interview-ready demo |
+- **Featured work:** curated projects with summaries, technology tags, screenshots, GitHub links, and live demos.
+- **Project archive:** additional engineering work grouped into maintainable Markdown content.
+- **Experience:** role and company entries managed independently from page components.
+- **Responsive presentation:** Gatsby and React components styled with styled-components.
+- **Search and social metadata:** Gatsby plugins generate sitemap, robots metadata, image processing, and Open Graph assets.
 
-The case studies document limitations and verification boundaries. For current implementation details, use each source repository as the source of truth.
+## Selected project previews
 
-## Local development
+These images are committed in the static/projects directory and are used by the portfolio content.
 
-This is a dependency-free static site. Serve it with any local static HTTP server:
+| Project | Preview |
+| --- | --- |
+| EvidencePilot | ![EvidencePilot project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/evidence-pilot.png) |
+| Hourly | ![Hourly project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/hourly.png) |
+| PinkyDocs AI | ![PinkyDocs AI project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/pinkydocs-ai.png) |
+| Research Chat | ![Research Chat project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/pnk-research-chat.png) |
 
-```bash
-python3 -m http.server 8000
-```
+## Technology
 
-Then open http://localhost:8000. No API keys, environment variables or database are required.
+| Area | Technology |
+| --- | --- |
+| Static site framework | Gatsby 3 |
+| UI | React 17 |
+| Styling | styled-components |
+| Motion and scrolling | Anime.js, ScrollReveal, Lenis |
+| Content | Markdown via Gatsby Transformer Remark |
+| Images | Gatsby Image, Sharp |
+| SEO and metadata | React Helmet, sitemap and robots plugins |
+| Code highlighting | Prism.js |
+| Package manager | Yarn |
 
-## Deployment
+## Content architecture
 
-1. Push changes to `main`.
-2. GitHub Actions runs `.github/workflows/pages.yml`.
-3. In repository Settings → Pages, select **GitHub Actions** as the build and deployment source if it is not already configured.
-4. Wait for the deployment job to complete.
-5. Verify https://aravindsasok.github.io/v13_dot_one/.
+The site separates portfolio content from presentation components:
 
-All internal links use relative paths, so the project site works beneath the `/v13_dot_one/` base path.
+~~~mermaid
+flowchart TD
+  JOBS[content/jobs Markdown] --> GATSBY[Gatsby data layer]
+  FEATURED[content/featured Markdown] --> GATSBY
+  PROJECTS[content/projects Markdown] --> GATSBY
+  CONFIG[src/config.js] --> SITE[React portfolio pages]
+  GATSBY --> SITE
+  IMAGES[static/projects screenshots] --> GATSBY
+  SITE --> BUILD[Gatsby production build]
+  BUILD --> WEB[Static portfolio website]
+~~~
+
+## Run locally
+
+### Requirements
+
+- Node.js 16.20.2 (see .nvmrc)
+- Yarn 1.x
+
+### Install and start
+
+~~~bash
+nvm install 16.20.2
+nvm use 16.20.2
+yarn install
+yarn develop
+~~~
+
+Open the local URL printed by Gatsby, usually http://localhost:8000.
+
+### Production build
+
+~~~bash
+yarn build
+yarn serve
+~~~
+
+Gatsby serves the production build locally, usually at http://localhost:9000.
+
+## Update portfolio content
+
+- content/jobs/ contains experience entries.
+- content/featured/ contains featured project entries.
+- content/projects/ contains the project archive.
+- src/config.js contains site metadata, navigation, social links, and theme configuration.
+- static/projects/ contains project preview images.
+- src/images/logo.png contains the site mark.
+- static/og.png and static/og.svg provide social preview assets.
+
+Project Markdown uses frontmatter such as title, order, image, tech, github, and external. Keep image paths aligned with files under static/. Set featured ordering intentionally so the strongest and most current work appears first.
 
 ## Quality checks
 
-Before release, verify HTML structure and internal routes, project filters, mobile navigation, external links, keyboard focus, reduced-motion behavior, desktop/mobile rendering and live Pages asset paths. The QA report records what has and has not been run.
+~~~bash
+yarn build
+~~~
 
-## Contact
-
-- Email: aravindsasok@outlook.com
-- [GitHub](https://github.com/AravindSAsok)
-- [LinkedIn](https://linkedin.com/in/Aravind-Asok)
+The repository includes ESLint and Prettier tooling. Run the configured formatting/lint workflow before committing content or component changes.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See LICENSE.
+
+## Maintainer
+
+**Aravind S Asok**
+
+- GitHub: [@AravindSAsok](https://github.com/AravindSAsok)
+- Portfolio: [aravindsasok.netlify.app](https://aravindsasok.netlify.app/)
+- LinkedIn: [linkedin.com/in/aravind-asok](https://linkedin.com/in/aravind-asok)
