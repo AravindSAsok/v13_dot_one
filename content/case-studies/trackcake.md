@@ -14,6 +14,13 @@ stack:
 repo: https://github.com/AravindSAsok/tracKcake
 demo: https://trackcake.vercel.app/
 maturity: Deployed application
+architecture:
+  - Manual, text, or photo entry
+  - Astro server API
+  - Selected LLM provider
+  - Structured nutrition validation
+  - User review and edits
+  - Diary persistence
 ---
 
 ## Problem
