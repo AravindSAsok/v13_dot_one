@@ -76,6 +76,8 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
+[Source repository](https://github.com/AravindSAsok/EvidencePilot) · [Streamlit demo](https://evidencepilot.streamlit.app/)
+
 ## Why it is featured
 
 It demonstrates applied AI engineering beyond a basic chat interface: document ingestion, hybrid retrieval, source traceability, claim review, and evaluation-oriented tooling.
