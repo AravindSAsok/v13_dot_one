@@ -39,6 +39,7 @@ const Page = styled.main`
 const CaseStudyTemplate = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark;
   const [activeStep, setActiveStep] = useState(0);
+  const architecture = frontmatter.architecture || [];
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -54,13 +55,13 @@ const CaseStudyTemplate = ({ data }) => {
           <section className="architecture" aria-labelledby="architecture-title">
             <h2 id="architecture-title">Architecture explorer</h2>
             <div className="flow">
-              {frontmatter.architecture.map((step, index) => (
+              {architecture.map((step, index) => (
                 <button key={step} type="button" aria-pressed={activeStep === index} onClick={() => setActiveStep(index)}>
                   {String(index + 1).padStart(2, '0')} / {step}
                 </button>
               ))}
             </div>
-            <p className="flow-detail" aria-live="polite">{frontmatter.architecture[activeStep]}</p>
+            <p className="flow-detail" aria-live="polite">{architecture[activeStep] || 'Architecture notes are not available for this project.'}</p>
           </section>
           <div className="actions">
             <a href={frontmatter.repo} target="_blank" rel="noopener noreferrer">Source code ↗</a>
