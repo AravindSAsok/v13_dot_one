@@ -79,6 +79,8 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
+[Source repository](https://github.com/AravindSAsok/ClashCommand). A public demo URL is not listed.
+
 ## Why it is featured
 
 It demonstrates a substantial full-stack domain model, authenticated operations, explicit authorization, input validation, and an external data integration boundary.
