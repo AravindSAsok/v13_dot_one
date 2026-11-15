@@ -45,3 +45,35 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     },
   });
 };
+
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/case-studies/" } }) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) {
+    reporter.panicOnBuild("Unable to create case-study pages", result.errors);
+    return;
+  }
+
+  const template = path.resolve("./src/templates/case-study.js");
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: `/case-studies/${node.frontmatter.slug}/`,
+      component: template,
+      context: { slug: node.frontmatter.slug },
+    });
+  });
+};
