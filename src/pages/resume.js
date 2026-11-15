@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
+import { Link } from 'gatsby';
 import { Head } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
@@ -45,14 +45,12 @@ const ResumePage = () => (
     <>
       <GlobalStyle />
       <Head title="Resume — Aravind S Asok" description="Backend / AI Engineer with 5+ years of experience in Node.js, NestJS, Python, applied AI, and backend systems." />
-      <Helmet><meta name="robots" content="noindex,follow" /></Helmet>
-      <div className="resume-page">
+      <Resume>
         <div className="actions">
-          <a href="/">← Back to portfolio</a>
+          <Link to="/">← Back to portfolio</Link>
           <button type="button" onClick={() => window.print()}>Print / Save as PDF ↗</button>
         </div>
-        <Resume>
-          <div className="sheet">
+        <div className="sheet">
             <h1>Aravind S Asok</h1>
             <p className="role">BACKEND / AI ENGINEER</p>
             <p className="contact">+91 9746671395 · aravindsasok@outlook.com · Trivandrum, Kerala, India<br />
@@ -124,9 +122,8 @@ const ResumePage = () => (
               <p><b>Bachelor's Degree in Computer Science</b> · University of Kerala · 2017–2020</p>
               <p><b>Diploma in Computer Application</b> · CDIT</p>
             </section>
-          </div>
-        </Resume>
-      </div>
+        </div>
+      </Resume>
     </>
   </ThemeProvider>
 );
