@@ -18,17 +18,19 @@ The active page imports web fonts from Google Fonts and includes system fallback
 
 ## Components and interaction
 
-- Editorial hero and compact profile navigation.
+- Editorial hero with direct work, résumé, GitHub, LinkedIn, and contact actions.
 - Career timeline with source-backed role history.
-- Six selected project entries with functional category filters.
+- Engineering capabilities grouped into four readable domains.
+- Six selected project entries with working filters for AI & Agents, Backend Engineering, Full-Stack Applications, Research & RAG, and Developer Tools.
 - Direct source/demo links and individual case-study routes.
 - Interactive architecture explorers on case-study pages.
 - Curated project archive, historical activity snapshot, and email-based contact form.
+- Printable résumé page and downloadable PDF.
 - Visible keyboard focus, skip link, semantic landmarks, and reduced-motion handling.
 
 ## Responsive behavior
 
-The active stylesheet includes desktop, tablet, and mobile breakpoints. Project cards and archive rows adapt to narrow screens; filters wrap; the experience timeline becomes a single column. A real browser/device review is still required before release.
+The active stylesheet includes desktop, tablet, and mobile breakpoints. Project cards and archive rows adapt to narrow screens; filters wrap; the experience timeline and capabilities grid become a single column. A real browser/device review is still required before release.
 
 ## Performance choices
 
