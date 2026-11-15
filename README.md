@@ -1,127 +1,68 @@
-# Aravind S Asok — Developer Portfolio
+# Aravind S Asok — Engineering Portfolio
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/src/images/logo.png" width="88" alt="Aravind S Asok portfolio mark" />
-</p>
+**AI & Backend Engineer | Full-Stack Software Engineer**
 
-<p align="center"><strong>Backend engineering, full-stack products, and practical AI applications.</strong></p>
+I build reliable backend systems, practical AI-powered applications and full-stack products.
 
-<p align="center">
-  <img alt="Gatsby" src="https://img.shields.io/badge/Gatsby-3.4.1-663399?logo=gatsby&logoColor=white" />
-  <img alt="React" src="https://img.shields.io/badge/React-17-149ECA?logo=react&logoColor=white" />
-  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black" />
-  <img alt="Styled Components" src="https://img.shields.io/badge/Styled--Components-5.3-DB7093?logo=styledcomponents&logoColor=white" />
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-green" />
-</p>
+This repository is an independent GitHub Pages deployment of the Gatsby portfolio source. It is intentionally separate from the original `v13` repository and uses the project-site base path `/v13_dot_one/`.
 
-This repository contains the source for Aravind S Asok's personal developer portfolio. It is a content-driven Gatsby site that presents professional experience, selected projects, technical skills, and contact links through a responsive React interface.
+## Stack
 
-> This is the Gatsby portfolio implementation in this repository. The technology badges describe this codebase, not any newer portfolio rebuild hosted elsewhere.
-
-## Portfolio sections
-
-- **Featured work:** curated projects with summaries, technology tags, screenshots, GitHub links, and live demos.
-- **Project archive:** additional engineering work grouped into maintainable Markdown content.
-- **Experience:** role and company entries managed independently from page components.
-- **Responsive presentation:** Gatsby and React components styled with styled-components.
-- **Search and social metadata:** Gatsby plugins generate sitemap, robots metadata, image processing, and Open Graph assets.
-
-## Selected project previews
-
-These images are committed in the static/projects directory and are used by the portfolio content.
-
-| Project | Preview |
-| --- | --- |
-| EvidencePilot | ![EvidencePilot project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/evidence-pilot.png) |
-| Hourly | ![Hourly project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/hourly.png) |
-| PinkyDocs AI | ![PinkyDocs AI project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/pinkydocs-ai.png) |
-| Research Chat | ![Research Chat project preview](https://raw.githubusercontent.com/AravindSAsok/aravind-asok-portfolio/main/static/projects/pnk-research-chat.png) |
-
-## Technology
-
-| Area | Technology |
-| --- | --- |
-| Static site framework | Gatsby 3 |
-| UI | React 17 |
-| Styling | styled-components |
-| Motion and scrolling | Anime.js, ScrollReveal, Lenis |
-| Content | Markdown via Gatsby Transformer Remark |
-| Images | Gatsby Image, Sharp |
-| SEO and metadata | React Helmet, sitemap and robots plugins |
-| Code highlighting | Prism.js |
-| Package manager | Yarn |
-
-## Content architecture
-
-The site separates portfolio content from presentation components:
-
-~~~mermaid
-flowchart TD
-  JOBS[content/jobs Markdown] --> GATSBY[Gatsby data layer]
-  FEATURED[content/featured Markdown] --> GATSBY
-  PROJECTS[content/projects Markdown] --> GATSBY
-  CONFIG[src/config.js] --> SITE[React portfolio pages]
-  GATSBY --> SITE
-  IMAGES[static/projects screenshots] --> GATSBY
-  SITE --> BUILD[Gatsby production build]
-  BUILD --> WEB[Static portfolio website]
-~~~
+- Gatsby 3 and React 17
+- JavaScript and styled-components
+- Markdown-driven project and experience content
+- Gatsby Image / Sharp
+- React Helmet, sitemap and robots plugins
+- GitHub Actions and GitHub Pages
 
 ## Run locally
 
-### Requirements
+The project targets Node.js 16.20.2 (see `.nvmrc`) and Yarn Classic.
 
-- Node.js 16.20.2 (see .nvmrc)
-- Yarn 1.x
-
-### Install and start
-
-~~~bash
+```bash
 nvm install 16.20.2
 nvm use 16.20.2
-yarn install
+yarn install --frozen-lockfile
 yarn develop
-~~~
+```
 
-Open the local URL printed by Gatsby, usually http://localhost:8000.
+Open the local URL printed by Gatsby, normally http://localhost:8000.
 
-### Production build
+## Production build
 
-~~~bash
-yarn build
+```bash
+yarn build --prefix-paths
 yarn serve
-~~~
+```
 
-Gatsby serves the production build locally, usually at http://localhost:9000.
+## Content structure
 
-## Update portfolio content
+- `content/featured/` — featured project entries
+- `content/jobs/` — professional experience entries
+- `content/projects/` — supporting project archive
+- `src/config.js` — navigation, social links and theme configuration
+- `static/projects/` — project preview images
+- `src/images/` — site assets
+- `docs/` — audit, design, architecture, SEO, QA and release notes
 
-- content/jobs/ contains experience entries.
-- content/featured/ contains featured project entries.
-- content/projects/ contains the project archive.
-- src/config.js contains site metadata, navigation, social links, and theme configuration.
-- static/projects/ contains project preview images.
-- src/images/logo.png contains the site mark.
-- static/og.png and static/og.svg provide social preview assets.
+Project descriptions are based on the content currently committed to this portfolio. A featured entry is not a substitute for a source-code audit of the corresponding application. Do not infer unimplemented functionality from marketing copy.
 
-Project Markdown uses frontmatter such as title, order, image, tech, github, and external. Keep image paths aligned with files under static/. Set featured ordering intentionally so the strongest and most current work appears first.
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the Gatsby site and deploys the generated `public/` directory to GitHub Pages. The configured project URL is:
+
+https://aravindsasok.github.io/v13_dot_one/
+
+The repository's Pages settings must permit GitHub Actions deployment.
 
 ## Quality checks
 
-~~~bash
-yarn build
-~~~
+```bash
+yarn build --prefix-paths
+```
 
-The repository includes ESLint and Prettier tooling. Run the configured formatting/lint workflow before committing content or component changes.
+The GitHub Actions workflow runs the production build before publishing. Additional browser, accessibility and live-site checks should be recorded in `docs/QA_REPORT.md` only after they have actually been run.
 
 ## License
 
-MIT. See LICENSE.
-
-## Maintainer
-
-**Aravind S Asok**
-
-- GitHub: [@AravindSAsok](https://github.com/AravindSAsok)
-- Portfolio: [aravindsasok.netlify.app](https://aravindsasok.netlify.app/)
-- LinkedIn: [linkedin.com/in/aravind-asok](https://linkedin.com/in/aravind-asok)
+MIT. See [LICENSE](LICENSE).
