@@ -76,6 +76,8 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
+[Source repository](https://github.com/AravindSAsok/hourly) · [Live application](https://hourly-psi.vercel.app/dashboard)
+
 ## Why it is featured
 
 It shows backend correctness and domain modelling: event-based time data, deterministic calculations, explicit boundary rules, and focused automated tests.
