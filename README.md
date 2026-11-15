@@ -6,9 +6,9 @@ A recruiter-focused engineering portfolio highlighting practical backend systems
 
 ## Live site
 
-Expected GitHub Pages URL: https://aravindsasok.github.io/v13_dot_one/
+https://aravindsasok.github.io/v13_dot_one/
 
-The URL is considered live only after the GitHub Actions deployment succeeds and the deployed pages are verified.
+The URL is deployed through GitHub Pages. The current release is still undergoing route, link, accessibility, and responsive verification.
 
 ## Featured work
 
@@ -19,9 +19,9 @@ The URL is considered live only after the GitHub Actions deployment succeeds and
 | Maplewood AI Front Desk | Deterministic-first MCP agent prototype | https://github.com/AravindSAsok/maplewood-ai-front-desk |
 | Hourly | Timestamp-based time tracking and break calculations | https://github.com/AravindSAsok/hourly |
 | ClashCommand | Authenticated relational operations dashboard | https://github.com/AravindSAsok/ClashCommand |
-| ACME Salary Management | Node.js API, SQLite, search and pagination | https://github.com/AravindSAsok/acme-salary-management |
+| Openfolio | GitHub-connected developer portfolio platform MVP | https://github.com/AravindSAsok/openfolio |
 
-Each selected project has a dedicated case study under `/case-studies/` with source links, implementation notes, limitations, and an interactive architecture explorer.
+Each selected project has a dedicated case study under `/case-studies/` with source links, implementation notes, data/API design, security considerations, testing evidence, limitations, and an interactive architecture explorer.
 
 ## Tech stack
 
@@ -73,9 +73,9 @@ Repository settings: **Settings → Pages → Build and deployment → GitHub Ac
 
 ## Verification status
 
-The previous workflow revision successfully completed dependency installation and the Gatsby production build. Pages configuration initially failed because the Pages site had not yet been enabled. The repository owner has since enabled Pages; the latest implementation workflow and live deployment must still be verified before this release is promoted.
+The current implementation has passed a full Gatsby production build and GitHub Pages deployment on the last verified commit. Later content and layout changes are being rebuilt in GitHub Actions. Browser-based visual verification could not start because the connected browser service wallet is below zero; link and SEO crawler checks are in progress.
 
-See [QA_REPORT.md](docs/QA_REPORT.md) and [DEPLOYMENT.md](docs/DEPLOYMENT.md) for the current release status.
+See [QA_REPORT.md](docs/QA_REPORT.md) and [DEPLOYMENT.md](docs/DEPLOYMENT.md) for release status.
 
 ## Professional links
 
