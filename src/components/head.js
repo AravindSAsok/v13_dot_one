@@ -30,7 +30,7 @@ const Head = ({ title, description, image }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname.replace(/^\/v13(?=\/|$)/, '')}`,
+    url: `${siteUrl}${pathname.replace(/^\/v13_dot_one(?=\/|$)/, '')}`,
   };
   const titleTemplate = seo.title === defaultTitle ? '%s' : `%s | ${defaultTitle}`;
 
@@ -39,6 +39,7 @@ const Head = ({ title, description, image }) => {
       <html lang="en" />
 
       <meta name="description" content={seo.description} />
+      <link rel="canonical" href={seo.url} />
       <meta name="image" content={seo.image} />
 
       <meta property="og:title" content={seo.title} />
