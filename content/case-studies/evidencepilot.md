@@ -13,6 +13,13 @@ stack:
 repo: https://github.com/AravindSAsok/EvidencePilot
 demo: https://evidencepilot.streamlit.app/
 maturity: Working research application
+architecture:
+  - PDF upload
+  - Page-aware extraction
+  - Chunking
+  - Hybrid retrieval
+  - Gemini response
+  - Citation and claim review
 ---
 
 ## Problem
