@@ -67,6 +67,7 @@ Repository settings: **Settings → Pages → Build and deployment → GitHub Ac
 - `content/jobs/` — experience history
 - `src/components/sections/portfolio.js` — active home page
 - `src/templates/case-study.js` — reusable case-study page and architecture explorer
+- `src/pages/resume.js` and `static/resume.pdf` — verified resume page and PDF download
 - `static/projects/` — portfolio project and activity images
 - `docs/` — project audit, selection, design, architecture, SEO, QA, deployment, and release notes
 
