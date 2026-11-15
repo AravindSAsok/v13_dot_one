@@ -49,7 +49,6 @@ const featuredProjects = [
     stack: ['Next.js 16', 'TypeScript', 'Supabase Auth', 'PostgreSQL', 'Node tests'],
     repoName: 'AravindSAsok/hourly',
     repo: 'https://github.com/AravindSAsok/hourly',
-    live: 'https://hourly-psi.vercel.app/dashboard',
     caseStudy: '/case-studies/hourly/',
   },
   {
