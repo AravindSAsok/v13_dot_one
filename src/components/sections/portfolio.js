@@ -201,13 +201,16 @@ const Portfolio = () => {
       <header className="mni-header" aria-label="Portfolio navigation">
         <div className="mni-header-stack">
           <span className="mni-header-label">Role</span>
-          <span>AI / Backend / Full-stack Software Engineer</span>
+          <span>AI & Backend Engineer | Full-Stack Software Engineer</span>
         </div>
 
         <div className="mni-header-profile">
           <span className="mni-header-label">Profile</span>
-          <a href="https://github.com/aravindsasok" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/AravindSAsok" target="_blank" rel="noopener noreferrer">
             github.com/aravindsasok
+          </a>
+          <a href="https://www.linkedin.com/in/aravind-asok/" target="_blank" rel="noopener noreferrer">
+            LinkedIn ↗
           </a>
         </div>
 
