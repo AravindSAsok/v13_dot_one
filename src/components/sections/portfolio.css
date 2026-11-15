@@ -1861,3 +1861,77 @@ body:has(.mni-site) #root {
   .mni-capability-grid p { font-size: 13px; }
   .mni-header-profile a + a { display: none; }
 }
+
+
+/* Project index numerals: keep the full sequence legible without competing with titles. */
+.mni-project-card {
+  isolation: isolate;
+}
+
+.mni-project-meta,
+.mni-project-title,
+.mni-project-content {
+  z-index: 2;
+}
+
+.mni-project-number {
+  z-index: 0;
+  top: 54%;
+  left: 3vw;
+  color: rgba(236, 232, 223, 0.14);
+  font-size: clamp(190px, 22vw, 320px);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .mni-project-number {
+    font-size: clamp(180px, 23vw, 280px);
+  }
+}
+
+@media (max-width: 900px) {
+  .mni-project-number {
+    top: 54%;
+    left: 2.5vw;
+    font-size: clamp(170px, 24vw, 250px);
+  }
+}
+
+@media (max-width: 767px) {
+  .mni-project-card {
+    min-height: 880px;
+  }
+
+  .mni-project-number {
+    top: 245px;
+    left: 22px;
+    font-size: clamp(112px, 25vw, 156px);
+    line-height: 0.88;
+    color: rgba(236, 232, 223, 0.16);
+    transform: none;
+  }
+
+  .mni-project-content {
+    top: 390px;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 390px) {
+  .mni-project-card {
+    min-height: 920px;
+  }
+
+  .mni-project-number {
+    top: 250px;
+    font-size: 116px;
+  }
+
+  .mni-project-content {
+    top: 390px;
+  }
+}
