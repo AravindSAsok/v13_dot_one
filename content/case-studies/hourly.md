@@ -13,6 +13,13 @@ stack:
 repo: https://github.com/AravindSAsok/hourly
 demo: https://hourly-psi.vercel.app/dashboard
 maturity: Deployed application
+architecture:
+  - Authenticated workspace
+  - Punch and break timestamps
+  - PostgreSQL persistence
+  - Shared time calculations
+  - Dashboard and history
+  - Reports and CSV export
 ---
 
 ## Problem
