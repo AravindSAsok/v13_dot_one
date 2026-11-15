@@ -75,6 +75,8 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
+[Source repository](https://github.com/AravindSAsok/maplewood-ai-front-desk). A public demo URL is not listed.
+
 ## Why it is featured
 
 It demonstrates practical agent engineering with MCP tools, explicit policy boundaries, fail-closed access checks, structured actions, and adversarial-input tests.
