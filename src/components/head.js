@@ -50,7 +50,7 @@ const Head = ({ title, description, image }) => {
       <meta name="description" content={seo.description} />
       <meta name="author" content="Aravind S Asok" />
       <link rel="canonical" href={seo.url} />
-      <link rel="sitemap" type="application/xml" href={withPrefix('/sitemap.xml')} />
+      <link rel="sitemap" type="application/xml" href={withPrefix('/sitemap-index.xml')} />
       <meta name="image" content={seo.image} />
 
       <meta property="og:title" content={seo.title} />
