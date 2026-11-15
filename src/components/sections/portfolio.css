@@ -1693,3 +1693,52 @@ body:has(.mni-site) #root {
 @media (prefers-reduced-motion: reduce) {
   .mni-filter-bar button { transition: none; }
 }
+
+/* Career context */
+.mni-experience { padding-top: 118px; padding-bottom: 112px; }
+.mni-experience-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 40px;
+  margin: 42px 0 62px;
+}
+.mni-experience-intro h2 {
+  max-width: 760px;
+  margin: 0 0 18px;
+  font: 500 clamp(42px, 7vw, 82px)/.98 var(--mni-display);
+  letter-spacing: -.065em;
+}
+.mni-experience-intro p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--mni-muted);
+  font: 16px/1.8 var(--mni-body);
+}
+.mni-experience-links { display: flex; flex-direction: column; gap: 12px; white-space: nowrap; }
+.mni-experience-links a {
+  color: var(--mni-text);
+  font: 12px/1.4 var(--mni-mono);
+  text-decoration: underline;
+  text-decoration-color: var(--mni-line);
+  text-underline-offset: 5px;
+}
+.mni-experience-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--mni-line); }
+.mni-experience-list li {
+  display: grid;
+  grid-template-columns: minmax(150px, .35fr) minmax(0, 1fr);
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--mni-line-soft);
+}
+.mni-experience-list li > span { color: var(--mni-dim); font: 11px/1.5 var(--mni-mono); }
+.mni-experience-list strong { display: block; color: var(--mni-text); font-size: 19px; font-weight: 500; }
+.mni-experience-list small { display: block; margin-top: 4px; color: var(--mni-muted); font: 12px/1.5 var(--mni-mono); }
+.mni-experience-list p { max-width: 680px; margin: 12px 0 0; color: var(--mni-muted); font: 14px/1.7 var(--mni-body); }
+.mni-header-profile { grid-column: 7 / span 2; }
+@media (max-width: 760px) {
+  .mni-experience { padding-top: 86px; padding-bottom: 76px; }
+  .mni-experience-intro { grid-template-columns: 1fr; gap: 24px; margin: 30px 0 38px; }
+  .mni-experience-links { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+  .mni-experience-list li { grid-template-columns: 1fr; gap: 9px; padding: 20px 0; }
+}
