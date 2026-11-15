@@ -1,93 +1,134 @@
 import React, { useEffect, useState } from 'react';
 import Lenis from 'lenis';
+import { withPrefix } from 'gatsby';
 import { email } from '@config';
 import './portfolio.css';
 
 const featuredProjects = [
   {
-    title: 'AravindSAsok',
-    lead: 'Showcases a full-stack engineer’s portfolio built with Gatsby, React and styled-components.',
-    stack: 'Gatsby · React · TypeScript',
-    stars: 1,
-    updated: 'Aug 2026',
-    repoName: 'AravindSAsok/AravindSAsok',
-    repo: 'https://github.com/AravindSAsok/AravindSAsok',
-    live: 'https://aravindsasok.netlify.app/',
-  },
-  {
     title: 'EvidencePilot',
-    lead: 'Python/Streamlit research assistant that extracts PDFs, retrieves evidence, and audits claims with Gemini.',
-    summary: 'EvidencePilot analyzes PDFs, retrieves relevant passages, generates source-grounded answers with page citations, and audits claims for factual support. It includes semantic and keyword search, a Research Agent, human review workflows, and retrieval evaluation tools.',
-    language: 'Python',
-    updated: 'Nov 2026',
-    topics: ['genai'],
+    category: 'Research & RAG',
+    maturity: 'Research application',
+    lead: 'A document research workspace for finding evidence, generating cited answers, and reviewing claims.',
+    summary: 'Combines page-aware PDF extraction, chunking, keyword and semantic retrieval, Gemini responses, citation review, and retrieval evaluation tools.',
+    stack: ['Python', 'Streamlit', 'Gemini', 'pypdf', 'NumPy', 'Supabase'],
     repoName: 'AravindSAsok/EvidencePilot',
     repo: 'https://github.com/AravindSAsok/EvidencePilot',
     live: 'https://evidencepilot.streamlit.app/',
+    caseStudy: '/case-studies/evidencepilot/',
   },
   {
-    title: 'ProfBot',
-    lead: 'Python CLI and Streamlit tool for document QA, extracting PDF text and retrieving passages.',
-    summary: 'A document question-answering application with a Python CLI and Streamlit interface. It extracts PDF and text content, retrieves relevant passages, and generates answers grounded in selected documents with validated citations.',
+    title: 'TrackCake',
+    category: 'Full-Stack Applications',
+    maturity: 'Deployed application',
+    lead: 'A food diary with manual, text-assisted, and photo-assisted meal logging.',
+    summary: 'Uses multiple LLM providers for nutrition estimates, validates structured suggestions, and lets users review and edit foods before saving to local or Supabase-backed diaries.',
+    stack: ['Astro 5', 'TypeScript', 'Supabase', 'PostgreSQL', 'Groq', 'Gemini', 'OpenRouter'],
+    repoName: 'AravindSAsok/tracKcake',
+    repo: 'https://github.com/AravindSAsok/tracKcake',
+    live: 'https://trackcake.vercel.app/',
+    caseStudy: '/case-studies/trackcake/',
+  },
+  {
+    title: 'Maplewood AI Front Desk',
+    category: 'AI & Agents',
+    maturity: 'Synthetic-data prototype',
+    lead: 'A deterministic-first MCP agent prototype for a fictional clinic inbox.',
+    summary: 'Combines explicit emergency, identity, refill, and scheduling policies with MCP tools, structured actions, and tests for privacy boundaries and prompt-injection handling.',
+    stack: ['Python', 'MCP', 'FastMCP', 'pytest'],
+    repoName: 'AravindSAsok/maplewood-ai-front-desk',
+    repo: 'https://github.com/AravindSAsok/maplewood-ai-front-desk',
+    caseStudy: '/case-studies/maplewood/',
+  },
+  {
+    title: 'Hourly',
+    category: 'Backend Engineering',
+    maturity: 'Deployed application',
+    lead: 'A timestamp-first work tracker with explicit break accounting.',
+    summary: 'Derives gross time, deducted breaks, and net work from recorded timestamps, with shared calculations across dashboard, history, reports, and CSV export.',
+    stack: ['Next.js 16', 'TypeScript', 'Supabase Auth', 'PostgreSQL', 'Node tests'],
+    repoName: 'AravindSAsok/hourly',
+    repo: 'https://github.com/AravindSAsok/hourly',
+    live: 'https://hourly-psi.vercel.app/dashboard',
+    caseStudy: '/case-studies/hourly/',
+  },
+  {
+    title: 'ClashCommand',
+    category: 'Backend Engineering',
+    maturity: 'Application source + tests',
+    lead: 'An authenticated operations dashboard for clans, players, memberships, and war history.',
+    summary: 'Uses a relational PostgreSQL model, Drizzle ORM, role-aware operations, validated APIs, and a controlled local synchronization workflow for external game data.',
+    stack: ['Next.js 16', 'React 19', 'TypeScript', 'PostgreSQL', 'Drizzle', 'NextAuth', 'Zod'],
+    repoName: 'AravindSAsok/ClashCommand',
+    repo: 'https://github.com/AravindSAsok/ClashCommand',
+    caseStudy: '/case-studies/clashcommand/',
+  },
+  {
+    title: 'ACME Salary Management',
+    category: 'Full-Stack Applications',
+    maturity: 'Full-stack application',
+    lead: 'An HR dashboard for searching employee records and managing salary information.',
+    summary: 'Pairs a React interface with an Express API and SQLite persistence, including pagination, employee search, salary updates, and summary endpoints. The test suite exercises a seeded 10,000-record dataset.',
+    stack: ['React', 'Node.js', 'Express 5', 'SQLite', 'better-sqlite3'],
+    repoName: 'AravindSAsok/acme-salary-management',
+    repo: 'https://github.com/AravindSAsok/acme-salary-management',
+    caseStudy: '/case-studies/acme-salary-management/',
+  },
+];
+
+const archiveProjects = [
+  {
+    title: 'ProfBot AI',
     language: 'Python',
-    updated: 'Nov 2026',
-    repoName: 'AravindSAsok/ProfBot',
+    year: '2026',
+    description: 'Document QA with a CLI and Streamlit UI, BM25-style retrieval, validated citations, Argon2id authentication, and usage controls.',
     repo: 'https://github.com/AravindSAsok/ProfBot',
   },
   {
+    title: 'Openfolio',
+    language: 'TypeScript',
+    year: '2026',
+    description: 'An early MVP for self-hostable developer portfolios using public GitHub data, Cloudflare Workers, D1, and R2.',
+    repo: 'https://github.com/AravindSAsok/openfolio',
+  },
+  {
+    title: 'LineSplit',
+    language: 'JavaScript',
+    year: '2026',
+    description: 'A local-first Chrome extension and web app for splitting long clipboard text into copy-ready chunks.',
+    repo: 'https://github.com/AravindSAsok/LineSplit',
+    live: 'https://aravindsasok.github.io/LineSplit/',
+  },
+  {
     title: 'Profdoc AI V2',
-    lead: 'Python/Streamlit chatbot that uses Gemini AI and Supabase to answer questions from user documents.',
-    summary: 'An AI-powered document research assistant that helps users interact with their documents and retrieve relevant information.',
     language: 'Python',
-    updated: 'Nov 2026',
-    topics: ['artificial-intelligence', 'rag-chatbot'],
-    repoName: 'AravindSAsok/profdoc_ai_v2',
+    year: '2026',
+    description: 'A document research assistant built with Streamlit, Gemini, and Supabase.',
     repo: 'https://github.com/AravindSAsok/profdoc_ai_v2',
     live: 'https://profdocai.streamlit.app/',
   },
   {
     title: 'PhD Research Chat',
-    lead: 'Streamlit app that answers questions from uploaded PDFs, DOCX and TXT using the Gemini API.',
-    summary: 'A research chat application that retrieves relevant excerpts from uploaded documents, keeps PDF page references, supports follow-up questions, and says when the provided sources do not contain enough evidence.',
     language: 'Python',
-    updated: 'Nov 2026',
-    topics: ['ai', 'llm', 'rag', 'rag-pipeline'],
-    repoName: 'AravindSAsok/phd-research-chat-mvp',
+    year: '2026',
+    description: 'A Streamlit MVP for asking questions about uploaded PDF, DOCX, and TXT research documents.',
     repo: 'https://github.com/AravindSAsok/phd-research-chat-mvp',
     live: 'https://phd-research-chat-mvp-puchki.streamlit.app/',
   },
   {
     title: 'Mini RAG',
-    lead: 'A RAG application with LLM-based analysis.',
-    summary: 'A retrieval-focused demo that chunks a local knowledge base, embeds the passages, and returns the most relevant results with source names and similarity scores. The current web app demonstrates retrieval rather than LLM answer generation.',
     language: 'Python',
-    updated: 'Nov 2026',
-    repoName: 'AravindSAsok/mini-rag',
+    year: '2026',
+    description: 'A retrieval-focused demo that returns relevant passages with source names and similarity scores.',
     repo: 'https://github.com/AravindSAsok/mini-rag',
     live: 'https://exo-rag.streamlit.app/',
   },
-];
-
-const archiveProjects = [
   {
     title: 'DevFlow API',
     language: 'Python',
     year: '2026',
     description: 'Python API backend for a developer workflow tool.',
     repo: 'https://github.com/AravindSAsok/devflow-api',
-  },
-  {
-    title: 'Maplewood AI Front Desk',
-    language: 'Python',
-    year: '2026',
-    repo: 'https://github.com/AravindSAsok/maplewood-ai-front-desk',
-  },
-  {
-    title: 'ACME Salary Management',
-    language: 'JavaScript',
-    year: '2026',
-    description: 'Salary management system for ACME’s HR team, built with React.',
-    repo: 'https://github.com/AravindSAsok/acme-salary-management',
   },
   {
     title: 'YT Clone',
@@ -102,54 +143,11 @@ const archiveProjects = [
     repo: 'https://github.com/AravindSAsok/todoappwithnode',
   },
   {
-    title: 'ATextFile',
-    language: 'JavaScript',
-    year: '2022',
-    repo: 'https://github.com/AravindSAsok/atextfile',
-  },
-  {
     title: 'Sequelize Association Migration',
     language: 'JavaScript',
     year: '2022',
     description: 'A practical Sequelize association, migration, and seed example.',
     repo: 'https://github.com/AravindSAsok/sequelize--association-migraton-and-seed',
-  },
-  {
-    title: 'GitHub Slideshow',
-    language: 'Ruby',
-    year: '2020',
-    description: 'A robot-powered GitHub training repository.',
-    repo: 'https://github.com/AravindSAsok/github-slideshow',
-    reference: 'https://lab.github.com/githubtraining/introduction-to-github',
-  },
-  {
-    title: 'LineSplit',
-    language: 'JavaScript',
-    year: '2026',
-    description: 'A Chrome extension and web app that splits long clipboard text into copy-ready chunks.',
-    repo: 'https://github.com/AravindSAsok/LineSplit',
-    live: 'https://aravindsasok.github.io/LineSplit/',
-  },
-  {
-    title: 'Openfolio',
-    language: 'TypeScript',
-    year: '2026',
-    description: 'A platform that builds self-hostable developer portfolios from public GitHub repositories.',
-    repo: 'https://github.com/AravindSAsok/openfolio',
-  },
-  {
-    title: 'V13',
-    language: 'JavaScript',
-    year: '2026',
-    description: 'A Gatsby and React portfolio focused on backend engineering and applied AI.',
-    repo: 'https://github.com/AravindSAsok/v13',
-    live: 'https://aravindsasok.github.io/v13/',
-  },
-  {
-    title: 'ClashCommand',
-    language: 'TypeScript',
-    year: '2026',
-    repo: 'https://github.com/AravindSAsok/ClashCommand',
   },
 ];
 
@@ -159,6 +157,10 @@ const archiveNumber = index => String(index + 7).padStart(2, '0');
 const Portfolio = () => {
   const [indexOpen, setIndexOpen] = useState(false);
   const [graphFailed, setGraphFailed] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('All');
+  const visibleProjects = activeFilter === 'All'
+    ? featuredProjects
+    : featuredProjects.filter(project => project.category === activeFilter);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -224,7 +226,7 @@ const Portfolio = () => {
           </p>
 
           <p className="mni-hero-statement">
-            I build dependable backend systems and practical AI-powered products.
+            I build reliable backend systems, practical AI applications, and full-stack products.
           </p>
 
           <figure className="mni-profile-figure">
@@ -281,8 +283,15 @@ const Portfolio = () => {
 
         <section className="mni-projects" id="projects" aria-labelledby="projects-title">
           <h2 className="mni-visually-hidden" id="projects-title">Selected projects</h2>
+          <nav className="mni-filter-bar" aria-label="Filter selected projects">
+            {['All', 'AI & Agents', 'Backend Engineering', 'Full-Stack Applications', 'Research & RAG'].map(filter => (
+              <button key={filter} type="button" aria-pressed={activeFilter === filter} onClick={() => setActiveFilter(filter)}>
+                {filter}
+              </button>
+            ))}
+          </nav>
           <ol className="mni-project-list">
-            {featuredProjects.map((project, index) => {
+            {visibleProjects.map((project, index) => {
               const number = projectNumber(index);
               const openUrl = project.live || project.repo;
 
@@ -294,9 +303,9 @@ const Portfolio = () => {
                   style={{ zIndex: index + 1 }}
                   aria-labelledby={'project-title-' + (index + 1)}>
                   <div className="mni-project-meta">
-                    <span>(01) <strong>Projects</strong></span>
+                    <span>(01) <strong>Selected work</strong></span>
                     <span>{number} / 06</span>
-                    <span>Updated {project.updated}</span>
+                    <span>{project.category}</span>
                   </div>
 
                   <h3 className="mni-project-title" id={'project-title-' + (index + 1)}>
@@ -313,34 +322,14 @@ const Portfolio = () => {
                     {project.summary && <p className="mni-project-summary">{project.summary}</p>}
 
                     <dl className="mni-project-facts">
-                      {typeof project.stars === 'number' && project.stars > 0 && (
-                        <div>
-                          <dt>Stars</dt>
-                          <dd>{project.stars}</dd>
-                        </div>
-                      )}
                       <div>
-                        <dt>Updated</dt>
-                        <dd>{project.updated}</dd>
+                        <dt>Stack</dt>
+                        <dd>{project.stack.join(' · ')}</dd>
                       </div>
-                      {project.language && (
-                        <div>
-                          <dt>Language</dt>
-                          <dd>{project.language}</dd>
-                        </div>
-                      )}
-                      {project.stack && (
-                        <div>
-                          <dt>Stack</dt>
-                          <dd>{project.stack}</dd>
-                        </div>
-                      )}
-                      {project.topics && project.topics.length > 0 && (
-                        <div>
-                          <dt>Topics</dt>
-                          <dd>{project.topics.join(', ')}</dd>
-                        </div>
-                      )}
+                      <div>
+                        <dt>Maturity</dt>
+                        <dd>{project.maturity}</dd>
+                      </div>
                     </dl>
 
                     <ul className="mni-project-links">
@@ -358,6 +347,10 @@ const Portfolio = () => {
                           {project.repoName}
                         </a>
                       </li>
+                      <li>
+                        <span>Engineering notes</span>
+                        <a href={withPrefix(project.caseStudy)}>Read case study ↗</a>
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -369,7 +362,7 @@ const Portfolio = () => {
         <section className="mni-section mni-archive" id="archive" aria-labelledby="archive-title">
           <div className="mni-section-kicker">
             <span>(02)</span>
-            <span>Archive, 12</span>
+            <span>Archive, {archiveProjects.length}</span>
           </div>
           <h2 id="archive-title">More projects</h2>
 
@@ -426,7 +419,7 @@ const Portfolio = () => {
           {!graphFailed ? (
             <figure className="mni-contribution-figure">
               <img
-                src="/v13/projects/github-activity-snapshot.png"
+                src={withPrefix('/projects/github-activity-snapshot.png')}
                 alt="Archived GitHub contribution calendar for Aravind S Asok, covering November 2025 to November 2026."
                 loading="eager"
                 decoding="async"
