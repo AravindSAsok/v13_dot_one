@@ -1,13 +1,13 @@
 const config = require('./src/config');
 
 module.exports = {
-  pathPrefix: '/v13',
+  pathPrefix: '/v13_dot_one',
 
   siteMetadata: {
     title: 'Aravind S Asok',
     description:
       'Aravind S Asok is a Software Engineer focused on building scalable backend systems, reliable APIs, and AI-powered applications.',
-    siteUrl: 'https://aravindsasok.github.io/v13',
+    siteUrl: 'https://aravindsasok.github.io/v13_dot_one',
     image: '/og.png',
   },
 
