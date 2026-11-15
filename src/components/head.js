@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql, withPrefix } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 // https://www.gatsbyjs.com/docs/add-seo-component/
 
@@ -50,7 +50,6 @@ const Head = ({ title, description, image }) => {
       <meta name="description" content={seo.description} />
       <meta name="author" content="Aravind S Asok" />
       <link rel="canonical" href={seo.url} />
-      <link rel="sitemap" type="application/xml" href={withPrefix('/sitemap-index.xml')} />
       <meta name="image" content={seo.image} />
 
       <meta property="og:title" content={seo.title} />
