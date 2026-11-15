@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aravindsasok.github.io/v13_dot_one/sitemap.xml
