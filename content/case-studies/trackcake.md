@@ -77,6 +77,8 @@ No live application screenshot was captured for this release. The interactive ar
 
 ## Demo and source
 
+[Source repository](https://github.com/AravindSAsok/tracKcake) · [Live application](https://trackcake.vercel.app/)
+
 ## Why it is featured
 
 TrackCake is a shipped, user-facing product that brings together full-stack application design, AI provider orchestration, structured output validation, and data persistence.
