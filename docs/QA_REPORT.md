@@ -1,21 +1,29 @@
 # QA report
 
-## Checks completed
+## Source-level checks completed
 
-- Confirmed the destination repository exists, is public, has `main` as its default branch and grants the connected GitHub account push/admin permissions.
-- Confirmed the original `v13` repository remains a separate repository.
-- Imported the complete 137-file source tree (including fonts, images, lockfile and license) from the original repository into this repository.
-- Updated Gatsby's path prefix and site URL for the `v13_dot_one` GitHub Pages project site.
-- Added repository setup and engineering documentation.
+- Confirmed the new repository is independent of the original `v13` repository.
+- Imported the original 137-file source tree, including assets, fonts, lockfile, and MIT license.
+- Updated Gatsby's project path prefix and canonical URL handling for `/v13_dot_one`.
+- Inspected source, manifests, API routes, schemas, and test files for the selected six projects.
+- Added six individual Markdown case studies and a reusable Gatsby page template.
+- Added a React-state architecture explorer to each case study.
+- Added working category filters and a career timeline to the portfolio home.
+- Corrected the contribution snapshot asset to use Gatsby's path prefix helper.
 
-## Not yet run / not yet verified
+## Build evidence
 
-- Dependency installation and local production build.
-- Lint, type checks and automated tests.
-- Route, link and image verification.
-- Keyboard, screen-reader, contrast and reduced-motion checks.
-- Desktop and mobile browser review.
-- GitHub Actions build/deploy status.
-- Live GitHub Pages URL and deployed asset paths.
+An earlier workflow revision successfully installed dependencies and completed `yarn build --prefix-paths`. That run subsequently failed at `actions/configure-pages` because the Pages site was not yet enabled for the repository. A retry was started after the owner enabled Pages. Newer implementation commits have also triggered fresh workflow runs; the latest commit must pass its own build before release.
 
-Do not interpret the import or configuration changes as proof that deployment or runtime checks passed.
+## Not yet verified
+
+- Current-commit production build and deployment.
+- Local lint, type checks, and unit tests for the portfolio.
+- Link status and live demo availability.
+- Generated sitemap, robots.txt, and canonical output.
+- Keyboard and screen-reader testing.
+- Contrast testing.
+- Desktop and mobile browser screenshots.
+- Console errors, image loading, and live GitHub Pages navigation.
+
+Do not interpret repository source inspection or an earlier successful build as proof that the latest implementation has passed QA.
